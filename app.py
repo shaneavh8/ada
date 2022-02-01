@@ -34,9 +34,9 @@ class StreamlitApp:
         num_return_sequences = 10
 
         context = st.text_input("Sentence:", value="How do I make a deposit?")
-        #response = self.get_response(context, num_return_sequences, num_beams)
+        response = self.get_response(context, num_return_sequences, num_beams)
 
-        #st.write(response)
+        st.write(response)
 
     def main(self):
         st.sidebar.title("Navigation")
