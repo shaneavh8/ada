@@ -18,8 +18,8 @@ class StreamlitApp:
 
         model_name = 'tuner007/pegasus_paraphrase'
         self.torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.tokenizer = PegasusTokenizer.from_pretrained(model_name)
-        self.model = PegasusForConditionalGeneration.from_pretrained(model_name).to(self.torch_device)
+        #self.tokenizer = PegasusTokenizer.from_pretrained(model_name)
+        #self.model = PegasusForConditionalGeneration.from_pretrained(model_name).to(self.torch_device)
 
     def paraphrase_generator(self):
         num_beams = 10
