@@ -34,6 +34,7 @@ class StreamlitApp:
         #st.write(tgt_text)
 
     def main(self):
+        st.title(TITLE)
         st.sidebar.title("Navigation")
         pages = {
             "Paraphrase Generator": self.paraphrase_generator
