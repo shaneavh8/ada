@@ -21,22 +21,17 @@ class StreamlitApp:
         self.tokenizer = PegasusTokenizer.from_pretrained(model_name)
         self.model = PegasusForConditionalGeneration.from_pretrained(model_name).to(self.torch_device)
 
-    def get_response(self, input_text, num_return_sequences, num_beams):
-        max_length = 60
-        temperature= 1.5
-        batch = self.tokenizer([input_text], truncation=True, padding='longest', max_length=max_length, return_tensors="pt").to(self.torch_device)
-        translated = self.model.generate(**batch,max_length=max_length, num_beams=num_beams, num_return_sequences=num_return_sequences, temperature=temperature)
-        tgt_text = self.tokenizer.batch_decode(translated, skip_special_tokens=True)
-        return tgt_text
-
     def paraphrase_generator(self):
         num_beams = 10
         num_return_sequences = 10
-
-        context = st.text_input("Sentence:", value="How do I make a deposit?")
-        response = self.get_response(context, num_return_sequences, num_beams)
-
-        st.write(response)
+        max_length = 60
+        temperature= 1.5
+        
+        input_text = st.text_input("Sentence:", value="How do I make a deposit?")
+        #batch = self.tokenizer([input_text], truncation=True, padding='longest', max_length=max_length, return_tensors="pt").to(self.torch_device)
+        #translated = self.model.generate(**batch,max_length=max_length, num_beams=num_beams, num_return_sequences=num_return_sequences, temperature=temperature)
+        #tgt_text = self.tokenizer.batch_decode(translated, skip_special_tokens=True)
+        #st.write(tgt_text)
 
     def main(self):
         st.sidebar.title("Navigation")
