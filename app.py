@@ -5,7 +5,7 @@ from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 
 class StreamlitApp:
     VERSION = '0.1.0'
-    TITLE = f"Ada Support Tool V{VERSION}"
+    TITLE = f"Ada Support Tool (v{VERSION})"
 
     def __init__(self):
         st.set_page_config(
